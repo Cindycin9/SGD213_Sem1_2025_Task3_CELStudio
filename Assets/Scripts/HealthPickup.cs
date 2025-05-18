@@ -16,6 +16,7 @@ public class HealthPickup : MonoBehaviour
         if (targetHealth == null ||
             targetHealth.CurrentHealth >= targetHealth.MaxHealth) return;
 
+
         targetHealth.Heal(healingAmount);
         Destroy(gameObject); //Remove the pickup after collection. 
     }
