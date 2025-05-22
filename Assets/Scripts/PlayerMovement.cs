@@ -6,15 +6,11 @@ public class PlayerMovement : MovementBase
     // If player needs additional movement types that the enemy does not require, they will override the Move() function here. 
 
 
-
-
-
-    private Rigidbody2D rb;
- 
+ /*
 
     void Start()
     {
-        rb = GetComponent<Rigidbody2D>();
+
     }
 
     public void Move()
@@ -33,7 +29,7 @@ public class PlayerMovement : MovementBase
     }
 
 
-    private void Flip()
+   /* private void Flip()
     {
         if (isFacingRight && horizontal < 0f || !isFacingRight && horizontal > 0f)
         {
@@ -47,8 +43,8 @@ public class PlayerMovement : MovementBase
 
     private bool IsGrounded()
     {
-        return Physics2D.OverlapCircle(groundCheck.position, 0.2f, groundLayer);
+       // return Physics2D.OverlapCircle(groundCheck.position, 0.2f, groundLayer);
     }
-
+    */
 
 }

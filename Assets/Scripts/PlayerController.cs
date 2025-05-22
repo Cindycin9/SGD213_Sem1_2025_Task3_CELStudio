@@ -5,12 +5,15 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
 
+    private float jumpingPower = 16f;
+    //private bool isFacingRight = true;
+
     private PlayerMovement playerMovement;
 
     private Rigidbody2D rb;
 
-    [SerializedField] private Transform groundCheck;
-    [SerializedField] private LayerMask groundLayer;
+    //[SerializedField] private Transform groundCheck;
+    //[SerializedField] private LayerMask groundLayer;
 
 
 
@@ -30,24 +33,25 @@ public class PlayerController : MonoBehaviour
         if (horizontalInput != 0.0f && playerMovement != null)
         {
            Vector2 direction = new Vector2(horizontalInput, 0.0f);
-            playerMovement.Move(direction);
+           playerMovement.Move(direction);
         }
 
 
         // Player Jump
 
-        if (Input.GetButtonDown("Jump") && IsGrounded())
+        if (Input.GetButtonDown("Jump") /*&& IsGrounded()*/)
         {
-            rb.velocty = new Vector2(rb.linearVelocity.x, jumpingPower);
+            rb.linearVelocity = new Vector2(rb.linearVelocity.x, jumpingPower);
         }
 
         if (Input.GetButtonUp("Jump") && rb.linearVelocity.y > 0f)
         {
             rb.linearVelocity = new Vector2(rb.linearVelocity.x, rb.linearVelocity.y * 0.5f);
+              
         }
 
         // Player flip
-        Flip();
+       // Flip();
 
     }
 
