@@ -4,7 +4,14 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
+
     private PlayerMovement playerMovement;
+
+    private Rigidbody2D rb;
+
+    [SerializedField] private Transform groundCheck;
+    [SerializedField] private LayerMask groundLayer;
+
 
 
     private void Start()
@@ -12,6 +19,8 @@ public class PlayerController : MonoBehaviour
         playerMovement = GetComponent<PlayerMovement>();
     }
   
+
+
     private void Update()
     {
         // read our horizontal input axis
@@ -24,6 +33,23 @@ public class PlayerController : MonoBehaviour
             playerMovement.Move(direction);
         }
 
+
+        // Player Jump
+
+        if (Input.GetButtonDown("Jump") && IsGrounded())
+        {
+            rb.velocty = new Vector2(rb.linearVelocity.x, jumpingPower);
+        }
+
+        if (Input.GetButtonUp("Jump") && rb.linearVelocity.y > 0f)
+        {
+            rb.linearVelocity = new Vector2(rb.linearVelocity.x, rb.linearVelocity.y * 0.5f);
+        }
+
+        // Player flip
+        Flip();
+
     }
+
 
 }
