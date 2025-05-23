@@ -1,9 +1,16 @@
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 using UnityEngine.Events;
 
+
+
 public class PlayerHealth : MonoBehaviour, IHealth
 {
+    public HealthBar healthBar;
+
     [Header("Health")]
     [SerializeField]
     protected int currentHealth;    
@@ -24,10 +31,12 @@ public class PlayerHealth : MonoBehaviour, IHealth
     private void Awake()
     {
         currentHealth = maxHealth;
-        // Add something here to set up health bar on game start. 
 
         // Get every SpriteRenderer once
         sprites = GetComponentsInChildren<SpriteRenderer>();
+
+        // Add something here to set up health bar on game start. 
+        healthBar.SetMaxHealth(maxHealth);
     }
 
     public void TakeDamage(int damageAmount)
@@ -48,6 +57,9 @@ public class PlayerHealth : MonoBehaviour, IHealth
         {
             StartCoroutine(InvincibleRoutine());
         }
+
+        healthBar.SetHealth(currentHealth);
+
     }
 
     public void Heal(int healingAmount)
