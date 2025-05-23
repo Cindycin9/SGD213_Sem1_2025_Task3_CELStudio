@@ -1,7 +1,7 @@
 using UnityEditor.Rendering;
 using UnityEngine;
 
-public class HealthPickup : MonoBehaviour
+public class HealthCollectable : MonoBehaviour
 {
     [SerializeField]
     private int healingAmount = 1;
