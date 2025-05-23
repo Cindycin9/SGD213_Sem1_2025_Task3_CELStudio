@@ -429,7 +429,7 @@ GameObject:
   - component: {fileID: 621139800}
   - component: {fileID: 621139799}
   - component: {fileID: 621139801}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Ground
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1167,7 +1167,7 @@ CompositeCollider2D:
   m_Enabled: 1
   serializedVersion: 3
   m_Density: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: 08240cbec7c39ef49aecda35ba44f353, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -1232,7 +1232,7 @@ Rigidbody2D:
   m_LinearDamping: 0
   m_AngularDamping: 0.05
   m_GravityScale: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: 08240cbec7c39ef49aecda35ba44f353, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -4287,6 +4287,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2169274470260486974, guid: 2279fd0072612404da8a170a978b6f6d, type: 3}
+      propertyPath: m_Material
+      value: 
+      objectReference: {fileID: 6200000, guid: bb2d8b0e2d8e8dc4f953a0e3d8f8f48c, type: 2}
     - target: {fileID: 4888541742304470058, guid: 2279fd0072612404da8a170a978b6f6d, type: 3}
       propertyPath: m_LocalPosition.x
       value: -0.68
@@ -4465,9 +4469,9 @@ Rigidbody2D:
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
   m_Mass: 1
-  m_LinearDamping: 0
-  m_AngularDamping: 0.05
-  m_GravityScale: 1
+  m_LinearDamping: 5
+  m_AngularDamping: 0
+  m_GravityScale: 5
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
@@ -4475,10 +4479,10 @@ Rigidbody2D:
   m_ExcludeLayers:
     serializedVersion: 2
     m_Bits: 0
-  m_Interpolate: 0
+  m_Interpolate: 1
   m_SleepingMode: 1
-  m_CollisionDetection: 0
-  m_Constraints: 0
+  m_CollisionDetection: 1
+  m_Constraints: 4
 --- !u!114 &3126350258306795196
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4491,7 +4495,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 94587d03e388458468aa0c9a1ca1be33, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  acceleration: 10
+  acceleration: 5
+  jumpForce: 30
+  groundLayer:
+    serializedVersion: 2
+    m_Bits: 8
+  groundCheckDistance: 1
 --- !u!61 &3126350258306795197
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -4502,7 +4511,7 @@ BoxCollider2D:
   m_Enabled: 1
   serializedVersion: 3
   m_Density: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: bb2d8b0e2d8e8dc4f953a0e3d8f8f48c, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -4586,6 +4595,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2165649631080956537, guid: 0542badcd089e53489ab5df6d2b22cd1, type: 3}
+      propertyPath: m_Material
+      value: 
+      objectReference: {fileID: 6200000, guid: bb2d8b0e2d8e8dc4f953a0e3d8f8f48c, type: 2}
     - target: {fileID: 4097778615881353192, guid: 0542badcd089e53489ab5df6d2b22cd1, type: 3}
       propertyPath: m_Name
       value: SpikeEnemy

@@ -2,25 +2,24 @@ using UnityEngine;
 
 public class PlayerMovement : MovementBase
 {
-    // For now nothing needs to be overriden. 
-    // If player needs additional movement types that the enemy does not require, they will override the Move() function here. 
+    [SerializeField]
+    private float jumpForce = 12f;
+    [SerializeField]
+    private LayerMask groundLayer;
+    [SerializeField]
+    private float groundCheckDistance = 1.1f;
 
-
- /*
-
-    void Start()
+    protected override void Start()
     {
-
+        base.Start(); //from MovementBase
     }
-
-    public void Move()
-    {
-
-    }
-
+        
     public void Jump()
     {
-
+        if (IsGrounded())
+        {
+            rb.linearVelocity = new Vector2(rb.linearVelocity.x, jumpForce);
+        }
     }
 
     public void Sprint()
@@ -29,7 +28,7 @@ public class PlayerMovement : MovementBase
     }
 
 
-   /* private void Flip()
+   /*private void Flip()
     {
         if (isFacingRight && horizontal < 0f || !isFacingRight && horizontal > 0f)
         {
@@ -39,12 +38,13 @@ public class PlayerMovement : MovementBase
             transform.localScale = localScale;
         }
 
-    }
+    }*/
 
     private bool IsGrounded()
     {
-       // return Physics2D.OverlapCircle(groundCheck.position, 0.2f, groundLayer);
+       RaycastHit2D hit = Physics2D.Raycast(transform.position, Vector2.down, groundCheckDistance, groundLayer);
+        return hit.collider != null;
     }
-    */
+    
 
 }

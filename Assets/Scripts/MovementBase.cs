@@ -7,7 +7,7 @@ public class MovementBase : MonoBehaviour
     private float acceleration = 100f;
 
     // local references
-    private Rigidbody2D rb;
+    protected Rigidbody2D rb;
 
     protected virtual void Start()
     {
