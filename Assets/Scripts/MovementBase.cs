@@ -4,7 +4,7 @@ public class MovementBase : MonoBehaviour
 {
         // horizontalPlayerSpeed indicates how fast we accelerate Horizontally
     [SerializeField]
-    private float acceleration = 100f;
+    private float moveSpeed = 2f;
 
     // local references
     protected Rigidbody2D rb;
@@ -26,8 +26,7 @@ public class MovementBase : MonoBehaviour
     {
         if (direction.sqrMagnitude > 0.001f)
         {
-            Vector2 forceToAdd = direction.normalized * acceleration * Time.deltaTime;
-            rb.linearVelocity = new Vector2(direction.x * acceleration, rb.linearVelocity.y);
+            rb.linearVelocity = new Vector2(direction.x * moveSpeed, rb.linearVelocity.y);
         }
     }
 }
