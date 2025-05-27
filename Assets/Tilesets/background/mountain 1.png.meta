@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 4a0ca843903fafa43964a5667855f0dc
+guid: 70d95dd10da4ad342adf2f92333f6a77
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -8779667692599533364
-    second: HealthPickupSprite_0
+      213: 4828939939129666585
+    second: mountain 1_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -100,13 +100,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: HealthPickupSprite_0
+      name: mountain 1_0
       rect:
         serializedVersion: 2
-        x: 47
-        y: 47
-        width: 162
-        height: 162
+        x: 0
+        y: 0
+        width: 3800
+        height: 1001
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -115,8 +115,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: cc0a1a010ca582680800000000000000
-      internalID: -8779667692599533364
+      spriteID: 91c25813a47d30340800000000000000
+      internalID: 4828939939129666585
       vertices: []
       indices: 
       edges: []
@@ -134,8 +134,7 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable:
-      HealthPickupSprite_0: -8779667692599533364
+    nameFileIdTable: {}
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

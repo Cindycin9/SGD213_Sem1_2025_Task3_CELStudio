@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 4a0ca843903fafa43964a5667855f0dc
+guid: 4d2d07402070c144caf0f56425ecddfe
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -8779667692599533364
-    second: HealthPickupSprite_0
+      213: -3766573433865374007
+    second: teee_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -100,13 +100,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: HealthPickupSprite_0
+      name: teee_0
       rect:
         serializedVersion: 2
-        x: 47
-        y: 47
-        width: 162
-        height: 162
+        x: 0
+        y: 0
+        width: 6000
+        height: 6000
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -115,8 +115,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: cc0a1a010ca582680800000000000000
-      internalID: -8779667692599533364
+      spriteID: 9c6f7060b617abbc0800000000000000
+      internalID: -3766573433865374007
       vertices: []
       indices: 
       edges: []
@@ -135,7 +135,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      HealthPickupSprite_0: -8779667692599533364
+      teee_0: -3766573433865374007
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

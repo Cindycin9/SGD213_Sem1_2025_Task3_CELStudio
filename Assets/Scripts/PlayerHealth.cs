@@ -76,10 +76,14 @@ public class PlayerHealth : MonoBehaviour, IHealth
         // Add something here to update the UI health bar. 
     }
 
+
+
     public void HandleDeath()
     {
+        
         Debug.Log("Player died.");
         Destroy(gameObject, 0.5f);
+
         // Change functionality when player movement is included. 
     }
 

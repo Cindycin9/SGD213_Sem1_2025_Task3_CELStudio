@@ -25,4 +25,8 @@ public interface IHealth
     /// Handles all functionality related to health when health reaches zero. Will also handles any additional death functionality unique to component.
     /// </summary>
     void HandleDeath();
+
+ 
+
+    
 }
