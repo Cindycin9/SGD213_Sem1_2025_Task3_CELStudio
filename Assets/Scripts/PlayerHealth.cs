@@ -40,7 +40,7 @@ public class PlayerHealth : MonoBehaviour, IHealth
         sprites = GetComponentsInChildren<SpriteRenderer>();
 
         // Add something here to set up health bar on game start. 
-        healthBar.SetMaxHealth(maxHealth);
+        //healthBar.SetMaxHealth(maxHealth);
     }
 
     public void TakeDamage(int damageAmount)
@@ -62,7 +62,8 @@ public class PlayerHealth : MonoBehaviour, IHealth
             StartCoroutine(InvincibleRoutine());
         }
 
-        healthBar.SetHealth(currentHealth);
+        //healthBar.SetHealth(currentHealth);
+
 
     }
 
@@ -78,6 +79,7 @@ public class PlayerHealth : MonoBehaviour, IHealth
         }
 
         // Add something here to update the UI health bar. 
+        //healthBar.SetHealth(currentHealth);
     }
 
     public void ResetHealth()
