@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 //Lets Respawn position be changed by checkpoints
 public class PlayerRespawn : MonoBehaviour
-{
+{/*
     public Vector3 respawnPoint;
 
     public void RespawnNow()
@@ -18,7 +18,5 @@ public class PlayerRespawn : MonoBehaviour
         {
             RespawnNow();
         }
-    }
-
-
+    }*/
 }

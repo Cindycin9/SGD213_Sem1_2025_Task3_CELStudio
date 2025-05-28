@@ -5,30 +5,51 @@ using UnityEngine.UI;
 
 public class HealthBar : MonoBehaviour
 {
-
     [SerializeField]
-    public Slider slider;
+    public HealthBar healthBar;
 
-    public void SetMaxHealth(int health)
-    {
-        slider.maxValue = health;
-        slider.value = health;
-    }
+    private PlayerHealth playerHealth;
 
-    public void SetHealth(int health)
-    {
-        slider.value = health;
-    }
+    public int numOfHearts;
 
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
+    public Image[] hearts;
+    public Sprite fullHeart;
+    int health;
+
+
+
+
     void Start()
     {
-        
-    }
+        UpdateHearts();
+        playerHealth = GetComponent<PlayerHealth>();
+        Debug.Log("Stupid start");
 
-    // Update is called once per frame
+    }
+    
     void Update()
     {
-        
+        UpdateHearts();
+    }
+
+    public void UpdateHearts()
+    {
+        //int health = playerHealth.CurrentHealth;
+
+
+        for (int i = 0; i < hearts.Length; i++)
+        {
+            Debug.Log("Stupid");
+            if (i < health)
+            {
+                hearts[i].sprite = fullHeart;
+            }
+            else
+            {
+                hearts[i].enabled = false;
+            }
+           
+        }
+
     }
 }
