@@ -18,6 +18,8 @@ public class PlayerHealth : MonoBehaviour, IHealth
     [SerializeField]
     protected int maxHealth;    
     public int MaxHealth { get {return maxHealth; } }
+    private PlayerRespawn playerRespawn;
+    
 
     [Header("Invincibility")]
     [SerializeField]
@@ -30,6 +32,8 @@ public class PlayerHealth : MonoBehaviour, IHealth
 
     private void Awake()
     {
+        // 
+        playerRespawn = GetComponent<PlayerRespawn>();
         currentHealth = maxHealth;
 
         // Get every SpriteRenderer once
@@ -82,8 +86,8 @@ public class PlayerHealth : MonoBehaviour, IHealth
     {
         
         Debug.Log("Player died.");
-        Destroy(gameObject, 0.5f);
-
+        playerRespawn.RespawnNow();
+        
         // Change functionality when player movement is included. 
     }
 

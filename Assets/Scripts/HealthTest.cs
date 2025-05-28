@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class HealthTest : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
+    // Triggers Respawn if Player Health = 0
     public int health;
     private PlayerRespawn playerRespawn;
 
