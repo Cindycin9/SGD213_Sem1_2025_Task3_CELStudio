@@ -77,12 +77,14 @@ public class PlayerHealth : MonoBehaviour, IHealth
             currentHealth = maxHealth;
         }
 
-        // Add something here to update the UI health bar. 
+        // Update the UI Health Bar after healing.
+        healthBar.SetHealth(currentHealth);
     }
 
     public void ResetHealth()
     {
         currentHealth = maxHealth;
+        healthBar.SetHealth(currentHealth);
     }
 
     public void HandleDeath()

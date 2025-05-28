@@ -4212,7 +4212,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3692038679727672735, guid: a40d65a23ea7f2a4291f1d66feaa2e67, type: 3}
       propertyPath: healingAmount
-      value: 3
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5871100189574909486, guid: a40d65a23ea7f2a4291f1d66feaa2e67, type: 3}
       propertyPath: m_LocalScale.x
