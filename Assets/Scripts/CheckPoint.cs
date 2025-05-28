@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class CheckPoint : MonoBehaviour
-    {/*
+    {
         private PlayerRespawn playerRespawn;
         public GameObject greenPoint;
         public GameObject redPoint;
@@ -22,5 +22,5 @@ public class CheckPoint : MonoBehaviour
                 redPoint.SetActive(false);
                 greenPoint.SetActive(true);
             }
-        }*/
+        }
     }
