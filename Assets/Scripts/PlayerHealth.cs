@@ -80,13 +80,17 @@ public class PlayerHealth : MonoBehaviour, IHealth
         // Add something here to update the UI health bar. 
     }
 
-
+    public void ResetHealth()
+    {
+        currentHealth = maxHealth;
+    }
 
     public void HandleDeath()
     {
         
         Debug.Log("Player died.");
         playerRespawn.RespawnNow();
+        ResetHealth();
         
         // Change functionality when player movement is included. 
     }

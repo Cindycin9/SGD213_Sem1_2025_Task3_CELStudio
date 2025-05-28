@@ -5,7 +5,7 @@ public class HealthTest : MonoBehaviour
     // Triggers Respawn if Player Health = 0
     public int health;
     private PlayerRespawn playerRespawn;
-
+    
     private void Start()
     {
         playerRespawn = GameObject.Find("Player").GetComponent<PlayerRespawn>();
@@ -16,8 +16,11 @@ public class HealthTest : MonoBehaviour
         if(health <= 0)
         {
             playerRespawn.RespawnNow();
+            
         }
     
         
     }
+   
+  
 }
