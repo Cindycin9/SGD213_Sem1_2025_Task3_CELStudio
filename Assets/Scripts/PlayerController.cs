@@ -28,20 +28,5 @@ public class PlayerController : MonoBehaviour
                 playerMovement.Jump();
             }
         }
-
-        // if movement input is not zero
-        /*if (horizontalInput != 0.0f && playerMovement != null)
-        {
-           Vector2 direction = new Vector2(horizontalInput, 0.0f);
-           playerMovement.Move(direction);
-        }*/
-
-
-        // Player Jump   
-        // Player flip
-       // Flip();
-
     }
-
-
 }

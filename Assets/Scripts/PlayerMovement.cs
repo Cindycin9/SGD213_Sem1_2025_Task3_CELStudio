@@ -26,25 +26,10 @@ public class PlayerMovement : MovementBase
     {
 
     }
-
-
-   /*private void Flip()
-    {
-        if (isFacingRight && horizontal < 0f || !isFacingRight && horizontal > 0f)
-        {
-            isFacingRight = !isFacingRight;
-            Vector3 localScale = transform.localScale;
-            localScale.x *= -1f;
-            transform.localScale = localScale;
-        }
-
-    }*/
-
+     
     private bool IsGrounded()
     {
        RaycastHit2D hit = Physics2D.Raycast(transform.position, Vector2.down, groundCheckDistance, groundLayer);
         return hit.collider != null;
     }
-    
-
 }
