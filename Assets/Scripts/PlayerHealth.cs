@@ -7,6 +7,7 @@ using UnityEngine.Events;
 
 
 
+
 public class PlayerHealth : MonoBehaviour, IHealth
 {
     public HealthBar healthBar;
@@ -30,8 +31,20 @@ public class PlayerHealth : MonoBehaviour, IHealth
     private bool isInvincible;
     private SpriteRenderer[] sprites;
 
+    
+    private GameManagerScript gameManager;
+
+    private int respawnCount = 0;  // Track respawns
+    private int maxRespawns = 3;   // Max allowed respawns
+
     private void Awake()
     {
+        playerRespawn = GetComponent<PlayerRespawn>();
+        gameManager = FindObjectOfType<GameManagerScript>();  // Get GameManager reference
+
+        currentHealth = maxHealth;
+        sprites = GetComponentsInChildren<SpriteRenderer>();
+
         // 
         playerRespawn = GetComponent<PlayerRespawn>();
         currentHealth = maxHealth;
@@ -42,6 +55,28 @@ public class PlayerHealth : MonoBehaviour, IHealth
         // Add something here to set up health bar on game start. 
         //healthBar.MaxHealth(maxHealth);
     }
+
+    public void HandleDeath()
+    {
+        respawnCount++;
+
+        if (respawnCount >= maxRespawns)
+        {
+            Debug.Log("Max respawns reached. Game Over.");
+            gameManager.gameOver();  // Show game over screen
+            // Optionally disable player movement here or any other cleanup
+        }
+        else
+        {
+            Debug.Log("Player died. Respawning...");
+            playerRespawn.RespawnNow();
+            ResetHealth();
+        }
+    }
+
+
+  
+   
 
     public void TakeDamage(int damageAmount)
     {
@@ -87,15 +122,7 @@ public class PlayerHealth : MonoBehaviour, IHealth
         //healthBar.SetHealth(currentHealth);
     }
 
-    public void HandleDeath()
-    {
-        
-        Debug.Log("Player died.");
-        playerRespawn.RespawnNow();
-        ResetHealth();
-        
-        // Change functionality when player movement is included. 
-    }
+    
 
     #region Invincibility & Flash
 

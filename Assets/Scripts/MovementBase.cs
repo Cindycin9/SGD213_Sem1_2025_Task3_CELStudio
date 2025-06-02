@@ -9,6 +9,12 @@ public class MovementBase : MonoBehaviour
     // local references
     protected Rigidbody2D rb;
 
+
+    protected virtual void Awake()
+    {
+        rb = GetComponent<Rigidbody2D>();
+    }
+
     protected virtual void Start()
     {
         // populate rb
