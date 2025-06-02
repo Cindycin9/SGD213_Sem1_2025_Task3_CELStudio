@@ -84,8 +84,7 @@ public class PlayerHealth : MonoBehaviour, IHealth
 
         Debug.Log("Player took damage: " + damageAmount);
         currentHealth -= damageAmount;
-
-        // Add something here to update the UI health bar.
+        healthBar.SetHealth(currentHealth, maxHealth);
 
         if (currentHealth <= 0)
         {
@@ -96,9 +95,6 @@ public class PlayerHealth : MonoBehaviour, IHealth
         {
             StartCoroutine(InvincibleRoutine());
         }
-
-        //healthBar.SetHealth(currentHealth);
-
     }
 
     public void Heal(int healingAmount)
@@ -112,14 +108,13 @@ public class PlayerHealth : MonoBehaviour, IHealth
             currentHealth = maxHealth;
         }
 
-        // Update the UI Health Bar after healing.
-        //healthBar.SetHealth(currentHealth);
+        healthBar.SetHealth(currentHealth, maxHealth);
     }
 
     public void ResetHealth()
     {
         currentHealth = maxHealth;
-        //healthBar.SetHealth(currentHealth);
+        healthBar.SetHealth(currentHealth, maxHealth);
     }
 
     

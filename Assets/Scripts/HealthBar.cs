@@ -13,22 +13,16 @@ public class HealthBar : MonoBehaviour
     public Image[] hearts;
 
     public PlayerHealth playerHealth;
-
-    void Start()
+    
+    public void SetHealth(int current, int max)
     {
+        Debug.Log($"SetHealth called: current = {current}, max = {max}");
+        CurrentHealth = current;
+        MaxHealth = max;
 
-    }
-
-    // Updates the Heart Sprites to match the players Current Health
-    void Update()
-    {
-        CurrentHealth = playerHealth.CurrentHealth;
-        MaxHealth = playerHealth.MaxHealth;
-
-        // Determines the length(number) of the Sprites
         for (int i = 0; i < hearts.Length; i++)
         {
-            if (i < MaxHealth)
+            if (i < CurrentHealth)
             {
                 hearts[i].sprite = fullHeart;
             }
@@ -36,6 +30,8 @@ public class HealthBar : MonoBehaviour
             {
                 hearts[i].sprite = emptyHeart;
             }
+
+            hearts[i].enabled = i < MaxHealth;
         }
     }
 }
