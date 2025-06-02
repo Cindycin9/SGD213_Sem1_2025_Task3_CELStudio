@@ -12,6 +12,9 @@ public class CoinCollectable : MonoBehaviour
             if (pickupSound)
                 AudioSource.PlayClipAtPoint(pickupSound, transform.position);
 
+            // Increase the coin count in the UI
+            GameManagerScript.Instance.AddCoin();
+
             // Destroy the coin object 
             Destroy(gameObject);
         }
