@@ -1,5 +1,6 @@
 using UnityEngine;
 using System.Collections;
+using UnityEditor.ShaderGraph.Internal;
 
 public class PlayerMovement : MovementBase
 
@@ -12,6 +13,10 @@ public class PlayerMovement : MovementBase
     private float groundCheckDistance = 1.1f;
     [SerializeField]
     private float speed = 8f;
+    private float baseSpeed;
+
+    private bool canDoubleJump = false;
+    private bool hasDoubleJump = false; 
 
     private bool canDash = true;
     private bool isDashing;
@@ -23,6 +28,12 @@ public class PlayerMovement : MovementBase
 
     [SerializeField] private TrailRenderer tr;
 
+    protected override void Start()
+    {
+        base.Start();
+        baseSpeed = speed; //Stores inital speed for resetting after the Speed Boost
+    }
+
     private void Update()
     {
         if (isDashing)
@@ -33,21 +44,17 @@ public class PlayerMovement : MovementBase
         horizontal = Input.GetAxisRaw("Horizontal");
 
         if (horizontal != 0)
-{
-    Vector3 scale = transform.localScale;
-    scale.x = Mathf.Sign(horizontal);
-    transform.localScale = scale;
-}
+        {
+            Vector3 scale = transform.localScale;
+            scale.x = Mathf.Sign(horizontal);
+            transform.localScale = scale;
+        }
 
         if (Input.GetKeyDown(KeyCode.LeftShift) && canDash)
         {
             StartCoroutine(Dash());
         }
-
-       
-
     }
-
 
     private void FixedUpdate()
     {
@@ -59,24 +66,30 @@ public class PlayerMovement : MovementBase
         rb.linearVelocity = new Vector2(horizontal * speed, rb.linearVelocity.y);
     }
 
-
-    protected override void Start()
-    {
-        base.Start(); 
-       
-    }
-
     public void Jump()
     {
         if (IsGrounded())
         {
             rb.linearVelocity = new Vector2(rb.linearVelocity.x, jumpForce);
+            canDoubleJump = true;
+        }
+        else if (hasDoubleJump && canDoubleJump)
+        {
+            rb.linearVelocity = new Vector2(rb.linearVelocity.x, jumpForce);
+            canDoubleJump = false;
         }
     }
 
-    public void Sprint()
+    public void EnableDoubleJump(float duration)
     {
+        hasDoubleJump = true;
+        StartCoroutine(DisableDoubleJumpAfterDelay(duration));
+    }
 
+    private IEnumerator DisableDoubleJumpAfterDelay(float duration)
+    {
+        yield return new WaitForSeconds(duration);
+        hasDoubleJump = false;
     }
 
     private bool IsGrounded()
@@ -85,7 +98,10 @@ public class PlayerMovement : MovementBase
         return hit.collider != null;
     }
 
-    
+    public void ModifySpeed(float multiplier)
+    {
+        speed = baseSpeed * multiplier;
+    }
 
     private IEnumerator Dash()
     {
@@ -102,7 +118,4 @@ public class PlayerMovement : MovementBase
         yield return new WaitForSeconds(dashingCooldown);
         canDash = true;
     }
-
-
-
 }
