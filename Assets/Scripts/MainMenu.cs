@@ -8,11 +8,13 @@ public class MainMenu : MonoBehaviour
     public void PlayGame()
     {
      SceneManager.LoadScene("breh");
+        Debug.Log("breh Loaded!");
     }
 
     // Quits the game
     public void QuitGame()
     {
         Application.Quit();
+            Debug.Log("Quit Game!");
     }
 }
