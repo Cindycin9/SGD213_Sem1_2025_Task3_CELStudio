@@ -2,6 +2,7 @@ using UnityEngine;
 using System.Collections;
 using UnityEditor.ShaderGraph.Internal;
 
+// Handles player movement including jump, double jump, dash, and speed modification
 public class PlayerMovement : MovementBase
 
 {
@@ -16,16 +17,16 @@ public class PlayerMovement : MovementBase
     private float baseSpeed;
 
     private bool canDoubleJump = false;
-    private bool hasDoubleJump = false; 
-
+    private bool hasDoubleJump = false;
+    // Dash mechanic variables
     private bool canDash = true;
     private bool isDashing;
     private float dashingPower = 24f;
     private float dashingTime = 0.2f;
     private float dashingCooldown = 1f;
     private float horizontal;
-   
 
+    // Visual effect for dashing
     [SerializeField] private TrailRenderer tr;
 
     protected override void Start()
@@ -34,6 +35,7 @@ public class PlayerMovement : MovementBase
         baseSpeed = speed; //Stores inital speed for resetting after the Speed Boost
     }
 
+    // Handles player input each frame
     private void Update()
     {
         if (isDashing)
@@ -102,6 +104,8 @@ public class PlayerMovement : MovementBase
     {
         speed = baseSpeed * multiplier;
     }
+   
+    // Dash coroutine (ngl i still kinda dont know what coroutine means) to move quickly in a direction
 
     private IEnumerator Dash()
     {

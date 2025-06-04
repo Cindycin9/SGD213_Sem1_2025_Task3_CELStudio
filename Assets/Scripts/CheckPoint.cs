@@ -2,9 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+
+// Controls a checkpoint that sets the player's new respawn location
 public class CheckPoint : MonoBehaviour
     {
+    // Reference to the PlayerRespawn script on the Player
         private PlayerRespawn playerRespawn;
+    // Visual indicators for inactive (red) and active (green) checkpoints
         public GameObject greenPoint;
         public GameObject redPoint;
 

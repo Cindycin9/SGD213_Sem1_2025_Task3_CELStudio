@@ -2,7 +2,7 @@ using UnityEngine;
 using System.Collections;
 using UnityEngine.SceneManagement;
 using TMPro;
-
+// Manages game-wide logic: game over screen, coin count, scene transitions
 public class GameManagerScript : MonoBehaviour
 {
     public GameObject gameOverUI;
@@ -11,7 +11,8 @@ public class GameManagerScript : MonoBehaviour
     private int coinCount = 0;
     [SerializeField]
     private TextMeshProUGUI coinText;
-
+    
+    // Called when the object is first initialized
     void Awake()
     {
         if (Instance == null)
@@ -34,7 +35,7 @@ public class GameManagerScript : MonoBehaviour
     {
         gameOverUI.SetActive(true);
     }
-
+    // Reloads the current scene
     public void restart()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
