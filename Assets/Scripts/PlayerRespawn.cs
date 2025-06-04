@@ -18,7 +18,12 @@ public class PlayerRespawn : MonoBehaviour
         {
             RespawnNow();
         }
+        
+        // Player respawns if they fall off the map
+        if (transform.position.y < -1.5)
+        {
+            RespawnNow();
+            Debug.Log("Player fell off the map!");
+        }
     }
-
-
 }
